@@ -43,7 +43,7 @@ function App() {
         flexDirection='column'
         gap='12px'
 
-        minWidth='230px'
+        minWidth='240px'
         padding='56px'
       >
         <AddTodoForm />
