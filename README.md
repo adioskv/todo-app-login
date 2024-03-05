@@ -1,4 +1,4 @@
-# Todo app project - [DEMO](https://github.com/adioskv/todo-app-volt).
+# Todo app project - [DEMO](https://adioskv.github.io/todo-app-volt/).
 
 ## About
 Simple ToDo app project, that stores users records and allows him to:
