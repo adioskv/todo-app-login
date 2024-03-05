@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/filename-case */
 export function saveToStorage(name, state) {
   localStorage.setItem(name, JSON.stringify(state))
 

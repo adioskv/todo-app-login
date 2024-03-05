@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/filename-case */
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { changeStatus, removeTodo } from '../../app/store/slices/todos-slice'

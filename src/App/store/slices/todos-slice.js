@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { v4 as generateId } from 'uuid'
-import { getInitialStorage } from '../utils/get-initial-storage'
-import { saveToStorage } from '../utils/save-to-storage'
+import { getInitialStorage } from '../utils/getInitialStorage'
+import { updateStore } from '../utils/updateStore'
 
 export const todoSlice = createSlice({
   'name': 'todo',
-  'initialState': getInitialStorage('todos', { 'todos': [] }),
+  'initialState': getInitialStorage(
+    'todos',
+    { 'todos': [], 'completed': 0, 'active': 0 },
+  ),
   'reducers': {
     'addTodo': (state, action) => {
       const newTodo = {
@@ -15,20 +18,31 @@ export const todoSlice = createSlice({
       }
 
       state.todos.push(newTodo)
-      saveToStorage('todos', state)
     },
     'removeTodo': (state, action) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload)
-      saveToStorage('todos', state)
+
+      updateStore(state)
     },
     'changeStatus': (state, action) => {
       const editedTodo = state.todos.find((todo) => todo.id === action.payload)
-
       editedTodo.completed = !editedTodo.completed
-      saveToStorage('todos', state)
+
+      updateStore(state)
+    },
+    'clearCompleted': (state) => {
+      state.todos = state.todos.filter((todo) => !todo.completed)
+
+      updateStore(state)
     },
   },
 })
 
-export const { addTodo, removeTodo, changeStatus } = todoSlice.actions
+export const {
+  addTodo,
+  removeTodo,
+  changeStatus,
+  clearCompleted,
+} = todoSlice.actions
+
 export default todoSlice.reducer

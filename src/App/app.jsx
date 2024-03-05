@@ -1,14 +1,16 @@
+/* eslint-disable unicorn/filename-case */
 import { useSelector } from 'react-redux'
-import { Todo } from '../components/Todo/todo'
-import { AddTodoForm } from '../components/AddTodoForm/add-todo-form'
+import { AddTodoForm } from '../components/AddTodoForm/AddTodoForm'
 import { useState } from 'react'
-import { Box } from '@mui/material'
-import { Filters } from '../components/Filters/filters'
-import { TodosStatus } from '../components/TodosStatus/todos-status'
+import { Filters } from '../components/Filters/Filters'
+import { TodosStatus } from '../components/TodosStatus/TodosStatus'
+import { TodosList } from '../components/TodosList/TodosList'
+import { ClearCompleted } from '../components/ClearCompleted/ClearCompleted'
+import { AppContainer } from '../containers/AppContainer/AppContainer'
+import { TodosContainer } from '../containers/TodosContainer/TodosContainer'
 
 function App() {
   const [filter, setFilter] = useState('')
-
   const todos = useSelector((state) => state.todo.todos)
 
   function handleFilterChange(event) {
@@ -24,37 +26,23 @@ function App() {
   })
 
   return (
-    <Box
-      display='flex'
-      justifyContent='center'
-      alignItems='center'
-      flexDirection='column'
-      gap='36px'
-      paddingTop='48px'
-      maxWidth='100%'
-    >
+    <AppContainer>
       <h1>Todo app</h1>
 
-      <Box
-        boxShadow={'9px 11px 37px 0px rgba(0,0,0,0.35)'}
-        borderRadius='16px'
-
-        display='inline-flex'
-        flexDirection='column'
-        gap='12px'
-
-        minWidth='240px'
-        padding='56px'
-      >
+      <TodosContainer>
         <AddTodoForm />
-        {todos.length > 0 && <TodosStatus todos={todos} />}
-        {renderedTodos.map((todo) => <Todo todo={todo} key={todo.id}/>)}
 
         {todos.length > 0 && (
           <Filters filter={filter} onChange={handleFilterChange} />
         )}
-      </Box>
-    </Box>
+
+        {todos.length > 0 && <TodosStatus />}
+
+        <TodosList todos={renderedTodos} />
+
+        <ClearCompleted todos={todos} />
+      </TodosContainer>
+    </AppContainer>
   )
 }
 
