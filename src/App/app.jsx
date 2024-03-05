@@ -9,7 +9,7 @@ import { ClearCompleted } from '../components/ClearCompleted/ClearCompleted'
 import { AppContainer } from '../containers/AppContainer/AppContainer'
 import { TodosContainer } from '../containers/TodosContainer/TodosContainer'
 
-function App() {
+export function App() {
   const [filter, setFilter] = useState('')
   const todos = useSelector((state) => state.todo.todos)
 
