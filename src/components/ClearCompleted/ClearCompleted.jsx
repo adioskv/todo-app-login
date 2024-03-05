@@ -12,6 +12,7 @@ export const ClearCompleted = ({ todos }) => {
   }
 
   const isVisible = todos.some((todo) => todo.completed)
+
   return (
     isVisible && <Button onClick={handleClearCompleted}>Clear completed</Button>
   )
