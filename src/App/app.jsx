@@ -9,7 +9,7 @@ import { ClearCompleted } from '../components/ClearCompleted/ClearCompleted'
 import { AppContainer } from '../containers/AppContainer/AppContainer'
 import { TodosContainer } from '../containers/TodosContainer/TodosContainer'
 
-export function App() {
+export const App = () => {
   const [filter, setFilter] = useState('')
   const todos = useSelector((state) => state.todo.todos)
 
@@ -45,5 +45,3 @@ export function App() {
     </AppContainer>
   )
 }
-
-export default App
