@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/todo-app-login/static/css/main.e6c13ad2.css",
-    "main.js": "/todo-app-login/static/js/main.b381044c.js",
-    "index.html": "/todo-app-login/index.html",
-    "main.e6c13ad2.css.map": "/todo-app-login/static/css/main.e6c13ad2.css.map",
-    "main.b381044c.js.map": "/todo-app-login/static/js/main.b381044c.js.map"
+    "main.css": "/todo-app-volt/static/css/main.e6c13ad2.css",
+    "main.js": "/todo-app-volt/static/js/main.b381044c.js",
+    "index.html": "/todo-app-volt/index.html",
+    "main.e6c13ad2.css.map": "/todo-app-volt/static/css/main.e6c13ad2.css.map",
+    "main.b381044c.js.map": "/todo-app-volt/static/js/main.b381044c.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
